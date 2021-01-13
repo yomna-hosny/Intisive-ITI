@@ -1,0 +1,58 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event</title>
+</head>
+<body onkeypress="if(event.altKey && event.which===67){myWindow.close()}">
+    <input type="text" id="tBox" onkeypress="showKey(event.which)"  onclick=alert(event.button)><br><br>
+    
+    <button onclick="setInt()">start clock</button>
+    <input type="text" id="clockLb"> <br>
+    <button id="openWindow" onclick="Tout()">open window</button>
+    <button id="closeWindow" onclick="closeWin()">close window</button> <br><br><hr>
+    <form action="/Assignment4,5,6,7/GetWindow.html" method="GET">
+        userName : <input id="Uname" type="text" name="Uname" value="Enter your user name here" onclick="userName()"> <br>
+        password : <input id="Upass" type="password" name="Upass"><br>
+        <button type="submit" >login</button>
+
+    </form>
+
+    <script>
+    var t ,scrl, timout ,myWindow;
+        function showKey(k){
+            alert(k);
+            if(k===115){
+             clearInterval(t);
+            }
+        }
+        function setInt(){
+            t = setInterval("setClock()",1000);
+        }
+    function setClock(){
+        var now=new Date();
+        document.getElementById("clockLb").value=now.toLocaleTimeString();
+    }
+    function scrollWin(){
+        myWindow.scrollBy(0,50);
+
+    }
+    function newindow()
+    {
+        myWindow = window.open("", "", "width=200,height=100");
+        myWindow.document.write("<p>This is 'MsgWindow'. I am 200px wide and 100px tall! This is 'MsgWindow'. I am 200px wide and 100px tall! This is 'MsgWindow'. I am 200px wide and 100px tall! This is 'MsgWindow'. I am 200px wide and 100px tall! This is 'MsgWindow'. I am 200px wide and 100px tall!</p>");
+         scrl=setInterval("scrollWin()",1000);
+    }
+    function Tout (){
+      timout=setTimeout("newindow()",3000);
+    }
+    function closeWin(){
+        myWindow.close();
+    }
+    function userName(){
+        document.getElementById("Uname").value="";
+    }
+   
+    </script>
+</body>
+</html>

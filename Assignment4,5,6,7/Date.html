@@ -1,0 +1,77 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        
+        var currentDate=prompt("enter the date  of today in the following format");
+        var nameRegrx = /[a-zA-Z]{3,}/i
+        var mailRegrx = /\S+@\S+\.[com.eg]/i 
+        var phoneRegrx = /[010|012|011]\d{9}/
+
+
+
+        function checkDateFormat(currentDate){
+            if(currentDate.length==10 && currentDate.charAt(2)=="-" && currentDate.charAt(5)=="-"){
+              alert("okay")
+              return currentDate;
+            }
+            else
+            {
+               
+                throw new Error("wrong format"); ;
+             //   alert(e.description+"wrong format");
+            }
+        };
+        function newFormat(currentDate){
+            var now=new Date(currentDate.substring(6),currentDate.substring(3,4) ,currentDate.substring(0,1)).toDateString();
+            alert(now);
+        }
+        
+        try {checkDateFormat(currentDate);}
+        catch(e){
+            alert(e.message);
+        }
+        
+       
+        // newFormat(currentDate);
+
+        function check( )
+        {
+            do{
+            var Uname = prompt("enter name");             
+        }
+            while(!nameRegrx.test(Uname))
+
+            do{
+            var Umail = prompt("enter Email");             
+        }
+            while(!mailRegrx.test(Umail))
+
+        }
+          check();    
+        do{
+        var phone = prompt("enter phone number");
+        }
+        while (!phoneRegrx.test(phone)) 
+            
+        var Arr = [1, 7, 2, 8, 3, 4, 5, 0, 9];
+
+for (var i = 1; i < Arr.length; i++)
+    for (var j = 0; j < i; j++)
+        if (Arr[i] < Arr[j]) {
+          var x = Arr[i];
+          Arr[i] = Arr[j];
+          Arr[j] = x;
+        }
+
+console.log(Arr);
+  
+
+    </script>
+</body>
+</html>

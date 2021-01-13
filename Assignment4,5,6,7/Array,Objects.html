@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="submit" onclick="getDate()" value="Show DateTime">
+    <br>
+    <label id="Date"></label>
+    <br>
+    <script>
+        var tips = new Array(10);
+        tips[0]="1- Don’t forget var keyword when assigning a variable’s value for the first time.";
+        tips[1]="2- use === instead of ==";
+        tips[2]="3- undefined, null, 0, false, NaN, '' (empty string) are all falsy.";
+        tips[3]="4- Use Semicolons for line termination";
+        tips[4]="5- Create an object constructor";
+        tips[5]="6- Get a random item from an array";
+        tips[6]="7- Verify that a given argument is a number";
+        tips[7]="8- Use the map() function method to loop through an array’s items";
+        tips[8]="9- Check the properties of an object when using a for-in loop";
+        tips[9]="10- Serialization and deserialization (working with JSON)";
+
+        var  randomItem = tips[Math.floor(Math.random() * tips.length)];
+        alert(randomItem);
+
+        var colors = new Array(3);
+        colors["r"]="red" , colors["b"]="blue" , colors["g"]="green";
+
+        var DateColor= prompt("choose the color you want to use to display the date (r) red, (b) blue, (g) green")
+        function getDate()
+        {
+            var now = new Date();
+          document.getElementById("Date").innerHTML="<b> Current Date :</b>"+now.toLocaleString().fontcolor(colors[DateColor]);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <title>contact</title>
+       <style>
+           table  , td {
+            border: 1px solid;
+           }
+       </style>
+    </head>
+    <body>
+     <table style="width: 100%;">
+   <tr>
+     <td> <strong> name: </strong></td>
+     <td><label id="userName"></label></td>
+    </tr>
+   <tr>
+        <td>  <strong>  birthYear:</strong></td>
+         <td><label id="birthYear"></label></td>
+        </tr>
+   <tr>
+        <td> <strong> Age:</strong></td>
+         <td><label id="age"></label></td>
+        </tr>
+    </table>
+    <script>
+
+        do{
+       var userName= prompt("enter your name")
+    }
+    while(!isNaN(userName))
+
+    do{
+       var year= prompt("enter your birthYear")
+    }
+    while(!isFinite(year) || year>2010)
+    var age=2021-year;
+    document.getElementById("userName").innerHTML=userName
+    document.getElementById("birthYear").innerHTML=year
+    document.getElementById("age").innerHTML=age
+
+    </script>
+    </body>
+</html>

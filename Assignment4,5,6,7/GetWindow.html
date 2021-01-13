@@ -1,0 +1,21 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onkeypress="closeWin(event)">
+    <b style="font-size: 20px;">welcome <span id="sp"></span></b>
+    <script>
+        var urll=location.search;
+        const urlparams = new URLSearchParams(urll);
+        document.getElementById('sp').innerHTML=urlparams.get('Uname');
+        function closeWin(event){
+            
+            if(event.which==67)
+            this.close;
+        }
+
+     </script>
+</body>
+</html>
