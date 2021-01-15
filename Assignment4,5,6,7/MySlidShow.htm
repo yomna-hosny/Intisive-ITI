@@ -1,0 +1,50 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MySlidShow</title>
+</head>
+<body>
+    <input type="button" value="Start Slide Show" onclick="slideinterval()"><br><br>
+    <input type="button" value="previous" onclick=""> 
+     <img id="imgLb" onmouseover="showDescription()" onmouseout="statSlidShow()">
+   <input type="button" value="Next" onclick=""><br>     <label id="description"></label>   <br>
+    <input type="button" value="End Slide Show" onclick="endSlideShow()">
+
+    <script>
+        var img=1 ,sInt;
+        var imgarr=new Array(4);
+        imgarr[0]="this is image 1 description demo"
+        imgarr[1]="this is image 1 description demo";
+        imgarr[2]="this is image 2 description demo";
+        imgarr[3]="this is image 3 description demo";
+
+        function slideinterval(){
+            img=1;
+            document.getElementById("imgLb").src="/resources/"+img+".jpg";
+            img++;
+           sInt=setInterval("statSlidShow()",2000);
+        }
+       function statSlidShow(){
+           document.getElementById("description").innerHTML="";
+           document.getElementById("imgLb").src="/resources/"+img+".jpg";
+           if(img==3)
+           img=1;
+           else
+           img++;
+        
+       }
+      function showDescription(){
+       document.getElementById("description").innerHTML=imgarr[img];
+       clearInterval(sInt);
+     console.log(img);
+
+      }
+       function endSlideShow(){
+           clearInterval(sInt);
+           
+       }
+    </script>
+
+</body>
+</html>

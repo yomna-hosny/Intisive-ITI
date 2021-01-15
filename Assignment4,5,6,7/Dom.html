@@ -6,12 +6,30 @@
 </head>
 <body>
     <img src="/resources/smiley.png" onmouseover="this.src='/resources/sad.png'" onmouseout="this.src='/resources/smiley.png'" onclick='alert("hello")'>
+    <br><hr>
+    <form>
+        <input type="text" id="nameTxt" placeholder="Enter Your Name">
+       Gender : <select id="gSelect"><br>
+     <option >male</option>
+     <option>female</option>
+     <input type="button" value="Select" onclick=" genderSelection()"/>
+        </select>
+    </form>
+    <label id="result"></label>
     <!-- <button onclick="openWindow()">open window</button>
     <input type="radio" name="color" onclick="changeColor('red')">red<br>
     <input type="radio" name="color" onclick="changeColor('green')">green<br>
     <input type="radio" name="color" onclick="changeColor('blue')">blue<br> -->
 
 <script>
+    function genderSelection(){
+    var name = document.getElementById("nameTxt").value;
+    if( document.getElementById("gSelect").options[0].selected==true)
+      document.getElementById("result").innerHTML="your name is : Mr "+name;
+      else if(document.getElementById("gSelect").options[1].selected==true)
+      document.getElementById("result").innerHTML="<b>your name is : Ms "+name+"<b/>";
+
+    }
 //  var win;
 //  function openWindow(){
 //      win=window.open("", "_blank" , "width=300 , height=300");
