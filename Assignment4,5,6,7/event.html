@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>event</title>
 </head>
-<body onkeypress="if(event.altKey && event.which===67){myWindow.close()}">
+<body onkeydown="if(event.altKey && event.which===67){myWindow.close()}">
     <input type="text" id="tBox" onkeypress="showKey(event.which)"  onclick=alert(event.button)><br><br>
     
     <button onclick="setInt()">start clock</button>

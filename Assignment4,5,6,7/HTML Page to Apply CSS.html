@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> CSS magic</title>
+	<link rel="stylesheet" href="/Style.css">
+
+	<style>
+		.none-bullet-list{
+			list-style: none;
+		}
+		li>a{
+			color: red;
+			background-color: pink;
+			text-decoration: none;
+		}
+		li>a:hover{
+			color: pink;
+			background-color: red;
+		}
+		h2+p{
+		 font-weight: bold;
+		 font-size: 12px;
+		}
+		#loginform{
+			border: 2px dashed rgb(20,70,60);
+		}
+		input[type="text"]{
+			background-color:yellow;
+		}
+		input[type="text"]:focus{
+			background-color: white;
+		}
+		.tabled-bordered{
+			display: table-cell;
+			padding: 5px;
+		    border: 1px solid;
+		}
+		#aboutus{color: red !important;}
+		span>p{color: yellow ;}
+	</style>
+</head>
+<body>
+	
+
+	<div id="header" style="width: 100%; height:30%; background-color: red; float: left;" >
+		<h1>This is the page header</h1>
+	</div>
+	<span id="linksbar" style="width: 25%; height: 70%; background-color: gray; float: left;">
+		<div id="loginform" >
+			User name: <input type="text" id="name" value="Enter your user name here" onfocus="if(this.value=='Enter your user name here') {this.value=''}" onblur="check(this.value)"/>
+		<label id="namelb" ></label>	</br>
+			Password: <input type="password" id="pass"/>
+			<br/>
+			<input type="checkbox" id="checkbox"/> remember me
+			<br/>
+			<button id="loginbtn" onclick="login()">login</button>
+		</div>
+		<h2> site menu</h2>
+		<ul class="none-bullet-list">
+			<li><a href="#">link1</a></li>
+			<li><a href="#">link2</a></li>
+			<li><a href="#">link3</a></li>
+			<li><a href="#">link4</a></li>
+			<li><a href="#">link5</a></li>
+		</ul>
+	</span>
+	<span id="content" style="width: 75%; height: 70%; background-color: pink; float: left;">
+		<h2> about us</h2>
+		<p id="aboutus">
+			This is a paragraph This is a paragraph This is a paragraph This is a paragraph This is a paragraph This is a paragraph This is a paragraph This is a paragraph This is a paragraph This is a paragraph This is a paragraph This is a paragraph This is a paragraph This is a paragraph This is a paragraph This is a paragraph This is a paragraph.
+		</p>
+
+		<div id="titles">
+			<span class="tabled-bordered"> title1</span>
+			<span class="tabled-bordered"> title2</span>
+			<span class="tabled-bordered"> title3</span>
+		</div>
+
+	</span>
+<script>
+	var nameRegrx = /[a-zA-Z]{3,}/i;
+	
+	if(localStorage.name)
+	{
+		document.getElementById("name").value=localStorage.name;
+	}
+
+	if(localStorage.password)
+	{
+		document.getElementById("pass").value=localStorage.password;
+	}
+
+ function check(event){
+	 if(!nameRegrx.test(event)){
+		document.getElementById("namelb").innerHTML="<img style='width:30px' src='/resources/notvalid.png'>";
+		document.getElementById("name").focus();
+		document.getElementById("name").select();
+
+	 }
+	 else{
+		document.getElementById("namelb").innerHTML="<img style='width:30px' src='/resources/valid.png'>";
+		document.getElementById("pass").focus();
+
+	 }
+ }
+
+function login(){
+
+	if(document.getElementById("checkbox").checked)
+	{
+		if(!typeof(Storage)!=undefined)
+			{
+				var userNameTxt=document.getElementById("name").value;
+				var passTxt=document.getElementById("pass").value;
+				localStorage.name=userNameTxt;
+				localStorage.password=passTxt;
+				
+			}
+			else
+			{
+				alert("no");
+			}
+    }
+	else
+	{
+	   localStorage.removeItem("name");
+	   localStorage.removeItem("password");
+
+	}
+		
+}
+
+var jsonStr = '{ "firstName": "Ahmed","lastName": "Ali","age": 23}';
+var jsonCourses='{"course1":"HTML","course2":"CSS","course3":"JS","course4":"HTML5","course5":"CSS3"}';
+var jsonStudent='{"ID":1 , "name":"yomna" , "Adress":"fayoum" , "sKils":["html","css","js"] ,"IsLeader":true}';
+var arr =new Array(3);
+arr[0]=jsonStudent;
+arr[1]='{"ID":2 , "name":"Abd AlRahman" , "Adress":"Itsa" , "sKils":["html5","css3","c#" , ".Net core"] ,"IsLeader":true}';
+arr[2]='{"ID":3 , "name":"salma" , "Adress":"" , "sKils":["Algorithms","js"] ,"IsLeader":true}';
+var jsonObject=JSON.parse(jsonStr);
+var courses=JSON.parse(jsonCourses);
+var student = new Array(3);
+student[0]=JSON.parse(arr[0]);
+student[1]=JSON.parse(arr[1]);
+student[2]=JSON.parse(arr[2]);
+		
+	for(var course in courses){
+		document.write(course + " -> " + courses[course] + "<br>");
+		}
+
+		document.write("<hr> <br>")
+    for(var j in student){
+		document.write(student[j].name + " :");
+		 for(let i = 0 ; i<student[j].sKils.length;i++)
+		 	document.write(student[j].sKils[i]+" , ");
+		 	document.write("<br>");
+		console.log(student[j].sKils);
+	}
+</script>
+
+
+</body>
+</html>
