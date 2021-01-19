@@ -1,0 +1,90 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+
+<body>
+    <video width="90%" height="280" style="margin: 50px;" controls>
+        <source src="mov_bbb.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+      </video><br><br>
+      <svg width="200" height="200" style="text-align: center;" onmouseover="changeCircle()" onmousedown="rechange()" onmouseup="alert('mouse is up'); reset();" >
+        <circle cx="100" cy="100" r="80" stroke="black" stroke-width="4" fill="brown" id="circle" />
+      </svg>
+
+      
+       <canvas id="myCanvas" width="500" height="500" style="text-align: center ; border: 1px solid black;" onmousedown="changePhoto()" onmouseup="resetSmile()">
+]       </canvas>
+<br>
+<svg width="400" height="400" style="text-align: center;" >
+    <circle cx="100" cy="150" r="100" stroke="black" stroke-width="2" fill="gray" id="circle" style="opacity: .3;" >
+        
+    </circle>/>
+  </svg> 
+  <br><br>
+  <canvas id="nameCanvas" width="500" height="500" style="text-align: center ; border: 1px solid black;">
+    ]       </canvas>
+<img id="smile" src="smiley.png" style="display: none;"> 
+<img id="sad" src="sad.png" style="display: none;"> 
+      <script>
+          var img ,ctx,canvas ,ctx2,canvas2;
+          var crcl =document.getElementById("circle");
+        function  changeCircle()
+        { 
+          crcl.style.stroke="brown";
+          crcl.style.fill="black";
+        }
+        function rechange(){
+            crcl.style.stroke="red";
+          crcl.style.fill="gray";
+        }
+        function  reset(){
+            crcl.style.stroke="black";
+          crcl.style.fill="brown";
+        }
+
+        window.onload = function() {
+        canvas = document.getElementById("myCanvas");
+        ctx = canvas.getContext("2d");
+        img = document.getElementById("sad");
+        ctx.drawImage(img, 50, 50);
+
+
+        var canvas2 = document.getElementById("nameCanvas");
+        var ctx2 = canvas2.getContext("2d");
+        ctx2.beginPath();
+        ctx2.globalAlpha = .4;
+        ctx2.fillStyle= "blue";
+        ctx2.arc(300, 300, 150, 0, 2 * Math.PI); 
+        ctx2.fill();
+        ctx2.closePath();
+        ctx2.beginPath();
+        var gradient = ctx2.createLinearGradient(0, 0, canvas2.width, 0);
+        gradient.addColorStop("0"," black");
+        gradient.addColorStop("0.2", "green");
+        gradient.addColorStop("1.0", "red");
+        ctx2.font = "40px Arial"; 
+        ctx2.fillStyle=gradient;
+        ctx2.fillText("Yomna Hosny",170,300);
+        ctx2.closePath();
+           };
+ 
+           
+
+        function changePhoto(){
+        img = document.getElementById("smile");  
+        ctx.drawImage(img, 50, 50 ,400,400);
+        }
+        function resetSmile(){
+            ctx.clearRect( 0, 0 ,500,500);
+            img = document.getElementById("sad");
+        ctx.drawImage(img, 50, 50);
+        }
+      </script>
+</body>
+</html>

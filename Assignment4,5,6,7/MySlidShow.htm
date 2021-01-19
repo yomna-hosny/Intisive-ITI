@@ -21,13 +21,13 @@
 
         function slideinterval(){
             img=1;
-            document.getElementById("imgLb").src="/resources/"+img+".jpg";
+            document.getElementById("imgLb").src="resources/"+img+".jpg";
             img++;
            sInt=setInterval("statSlidShow()",2000);
         }
        function statSlidShow(){
            document.getElementById("description").innerHTML="";
-           document.getElementById("imgLb").src="/resources/"+img+".jpg";
+           document.getElementById("imgLb").src="resources/"+img+".jpg";
            if(img==3)
            img=1;
            else

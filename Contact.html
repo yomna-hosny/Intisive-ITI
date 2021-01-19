@@ -6,12 +6,12 @@
         <title>Contact Us </title> 
     </head>
     <body style="background-color: blanchedalmond;">  
-        <form action="/Assignment1/thanx.html" method="GET">
+        <form action="thanx.html" method="GET">
        <table style="width: 70%;" border="1px" align="center" >
            <caption>Contact Me </caption>
            <tr>
                <td>Your Name:</td>
-               <td><input type="text"></td>
+               <td><input type="text" required></td>
             </tr>
            <tr>
             <td>Your Opinion on the web site:</td>
@@ -55,9 +55,24 @@
 
            <tr>
             <td>Subject:</td>
-            <td><input type="text"></td>
+            <td><input type="text" id="name" onkeypress="check()">  <label id="lb"></label></td> 
            </tr>
 
+           <tr>
+            <td>Time of ending cours</td>
+            <td><input type="time"></td>
+           </tr>
+
+           <tr>
+            <td>Suggest site color</td>
+            <td><input type="color"></td>
+           </tr>
+
+           <tr>
+            <td>rate our website</td>
+            <td><input type="range" min="0" max="100" value="50"></td>
+           </tr>
+            
            <tr>
             <td>Message:</td>
             <td><input type="text"></td>
@@ -65,11 +80,26 @@
 
            <tr>
                <td colspan="2" style="text-align: center;"> 
-                   <button type="submit">submit</button> &nbsp;
+                   <button type="submit" id="btn"  >submit</button> &nbsp;
                    <button type="reset">reset</button>
                </td>
            </tr>
 
+          
+
        </table>
     </form>
+    <script> 
+        var nameRegrx = /[a-zA-Z]{3,}/i
+        var Uname = document.getElementById("name").value;
+
+        function check( )
+            {
+                if(!nameRegrx.test(Uname)){
+               
+                document.getElementById("lb").innerHTML="enter valid data";                           
+              document.getElementById("name").focus;
+              document.getElementById("btn")}
+        }
+        </script>
     </body>
