@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tiger</title>
+
+    <style>
+        body {
+        }
+        
+        img {
+            position: relative;
+            left: 0px;
+            animation: move 10s;
+            animation-iteration-count: infinite;
+        }
+        
+        @keyframes move {
+            0% {
+                transform: scaleX(-1);
+                left: 0px;
+            }
+            50% {
+                transform: scaleX(-1);
+                left: 92.5%;
+            }
+            51% {
+                transform: scaleX(1);
+            }
+            100% {
+                transform: scaleX(1);
+                left: 0px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <img src="tiger.gif" alt="image">
+
+</body>
+
+</html>

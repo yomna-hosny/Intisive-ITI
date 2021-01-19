@@ -1,0 +1,131 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS3</title>
+    <style>
+   /* acme-regular - latin */
+@font-face {
+  font-family: 'Acme';
+  font-style: normal;
+  font-weight: 400;
+  src: url('acme-v11-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('acme-v11-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('acme-v11-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('acme-v11-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('acme-v11-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('acme-v11-latin-regular.svg#Acme') format('svg'); /* Legacy iOS */
+}
+body{
+    font-family: 'Acme';
+}
+.reading{
+    column-count: 3;
+    column-gap: 40px;
+    column-rule: solid;
+}
+.spn{
+    column-span: all;
+}
+#verticalName{
+    width: 150px;
+    height: 150px;
+    margin: 20px;
+    text-align: center;
+    font-size: large;
+    border: 2px goldenrod solid ;
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+#tiger:active{
+left: 1200px;
+-ms-transform:scaleX(-1);
+    transform: scaleX(-1)  ;}
+#tiger{
+    position: relative;
+    left: 0px;
+    transition: left 7s ;
+   
+}
+
+@keyframes smileScaling {
+  to{height: 200px; width: 200px; transform:rotateY(360deg)  };
+}
+@keyframes tigerKey {
+    0%   {left: 0px; right:0px;}
+  25%  {left: 900px; top:0px;transform: rotateY(180deg); }
+  50%  {left: 0px; transform:rotateY(180deg);}
+  75%  {right: 0px; right:0px; }
+  100% {left: 0px; right:0px; transform:rotateY(180deg);}
+}
+#smile{
+   width: 50px;
+   height: 50px;
+   transition:transform  ,height , width ; 
+   animation-name: smileScaling;
+   animation-duration: 10s;
+   }
+
+    </style>
+</head>
+<body>
+    <head>
+        <img id="imgLb"  style="margin:200px;"> <br>
+        <img id="tiger" src="tiger.gif"> <br> <br> <hr>
+    </head>
+    <div style="border-radius: 20%; border: 2px black solid; width: 20%; padding: 5px;"><span>This part for circular corners</span></div>
+<br> <hr> <br>
+  <div class="reading">
+      <h1 class="spn"> Multi column example</h1><br>
+        <p >During the Second World War and well before, the Empire of Japan used the Rising Sun flag for not just state use or functions but also naval jacks and army banners, cementing its image as a symbol for an aggressive and imperialist Japan. To many Koreans, Filipinos, Chinese, and countless Asian ethnicities, the Rising Sun Flag occupied the same moral space as the swastika and the Nazi flag. Yet although Japan was also an Axis power responsible for heinous war crimes, Japan did not seem to go through the same deep cultural cleansing of its official and state symbols the way that Germany was following the end of the war. The flag did not receive an official ban from the government nor from the allied occupation forces.
+
+        The Rising Sun, although a symbol of the Japanese Empire would see its official return again in 1954 when the Japan Self Defense Forces were officially founded following Soviet military and nuclear threats. Less than a decade earlier it had been used for militaristic and imperialist motivations by an aggressive government seeking to build an empire and enrich itself by any means necessary. To many throughout the Asian continent, the Rising Sun symbolizes hostility and serving unwillingly to an empire. To many, it also brings images of comfort women, the Rape of Nanking, and the brutality of a warmongering military.
+    </p>
+</div>
+<br>
+<div id="verticalName">
+    <br><br>
+    <span > yomma hosny</span>
+</div> <br>
+<div style="width: 300px; height: 300px;">
+<img id="smile" src="/smiley.png">
+</div>
+
+
+
+<br>
+<hr>
+<marquee width="100%" direction="left" height="80px"><h1>Wellcome there to my news informations</h1></marquee>
+     <br><hr>
+
+    <script>
+        var img=1 ,sInt;
+        var imgarr=new Array(4);
+        imgarr[0]="this is image 1 description demo"
+        imgarr[1]="this is image 1 description demo";
+        imgarr[2]="this is image 2 description demo";
+        imgarr[3]="this is image 3 description demo";
+
+        function slideinterval(){
+            img=1;
+            document.getElementById("imgLb").src="resources/"+img+".jpg";
+            img++;
+           sInt=setInterval("statSlidShow()",2000);
+        }
+       function statSlidShow(){
+           document.getElementById("imgLb").src="resources/"+img+".jpg";
+           if(img==3)
+           img=1;
+           else
+           img++;
+        
+       }
+     
+       slideinterval();
+    </script>
+
+ 
+</body>
+</html>
